@@ -34,12 +34,12 @@ module.exports = {
         this.__CONNECTION_SET = true;
     },
 
-    initialise: function () {
+    initialise: async function () {
         if (!this.__CONNECTION_SET) {
             console.log(this.__LOG_MESSAGE + "Please set up connection first.");
             return;
         }
-        this.connection.connect(function(err) {
+        await this.connection.connect(function(err) {
             if (err)
                 throw err;
             console.log("Connection established.");
@@ -47,13 +47,28 @@ module.exports = {
 
         /// MAIN INIT PROCEDURE {
         var sqlQ = "CREATE DATABASE IF NOT EXISTS supernote;";
-        this.__executeSQLQuery(sqlQ, "Init-1");
+        await this.connection.query(sql, function(err, result) {
+            if (err)
+                throw err;
+            if (consoleLogMessage != "")
+                console.log("database API > " + sqlQ);
+        });
         
         sqlQ = "USE supernote;";
-        this.__executeSQLQuery(sqlQ, "Init-2");
+        await this.connection.query(sql, function(err, result) {
+            if (err)
+                throw err;
+            if (consoleLogMessage != "")
+                console.log("database API > " + sqlQ);
+        });
 
         sqlQ = "CREATE TABLE IF NOT EXISTS users (" + this.__USER_TABLE_STR + ");";
-        this.__executeSQLQuery(sqlQ, "Init-3");
+        await this.connection.query(sql, function(err, result) {
+            if (err)
+                throw err;
+            if (consoleLogMessage != "")
+                console.log("database API > " + sqlQ);
+        });
         /// }
 
         return true;
