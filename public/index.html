@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="bootstrap.min.js"></script>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -37,7 +38,9 @@
         </ul>
         </div>
     </nav>
+    <!-- Main Content -->
     <div class="wrapper">
+        <!-- Sidebar -->
         <aside class="item">
             <ul>
                 <li><a href="#">Add a note</a></li>
@@ -45,10 +48,21 @@
                 <li><a href="#">Deleted</a></li>
             </ul>
         </aside>
+        <!-- Content -->
         <div class="content">
-
+            <form class="form">
+                <div class="input-group">
+                    <input type="text" class="form-control form-input" placeholder="Add a note">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default add-btn" type="submit"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+           
+            </form>
+           
+            
             <div class="content-main">
-            <div class="content-section mt-4">
+            <!-- <div class="content-section mt-4">
                 <p>	Specifies the alignment between the lines inside a flexible container when the items do not use all available space</p>
             </div>
             <div class="content-section mt-4">
@@ -74,7 +88,7 @@
                 <p>	Specifies the alignment between the lines inside a flexible container when the items do not use all available space</p>
             </div>
             <div class="content-section mt-4">
-                <p>	Specifies the alignment between the lines inside a flexible container when the items do not use all available space</p>
+                <p>	Specifies the alignment between the lines inside a flexible container when the items do not use all available space</p> -->
             </div>
             
             
@@ -88,6 +102,12 @@
         $('#sidebar-toggler').click(function(){
             $('aside').toggleClass('active1');
             $('.wrapper').toggleClass('active2');
+        })
+        $('.add-btn').click(function(e){
+            let a=$('.form-input').val();
+            e.preventDefault();
+            $('.content-main').prepend('<div class="content-section mt-4"><p>'+ a+'</p></div>');
+            $('.form-input').val('');
         })
     </script>
     

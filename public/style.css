@@ -6,6 +6,11 @@ body
     
 
 }
+.content
+{
+    margin: 0;
+    padding: 0;
+}
 nav
 {
     background-color: rgb(32, 33, 36);
@@ -42,10 +47,25 @@ nav
 .active1
 {
     left: 0;
+
 }
 .active2
 {
     grid-template-columns: 300px auto;
+}
+.active3
+{
+    color: yellow;
+}
+
+.form
+{
+    width: 50vh;
+    margin: auto;
+}
+.add-btn
+{
+    width: 80px;
 }
 .wrapper ul
 {
@@ -65,14 +85,15 @@ nav
 .content-section{
     border: 1px solid white;
     border-radius: 5px;
-    width: 32%;
+    width: 30%;
+    margin: 10px;
 }
 
 .content-main
 {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
     margin-top: 14px;
 }
 .content-section p{
